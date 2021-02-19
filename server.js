@@ -2,7 +2,7 @@ const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
-const { notes } = require('./db/db.json')
+const db = require('./db/db.json');
 
 const app = express();
 const PORT = 3001;
@@ -21,10 +21,11 @@ app.get('/', (req, res) => {
   });
 
 app.get('/api/notes', (req, res) => {
-   res.json(notes);
+  let results = db; 
+  res.json(results);
 });
 
-pp.get('/api/notes/:note', (req, res) => {
+app.get('/api/notes/:id', (req, res) => {
   //
 });
 
@@ -40,11 +41,3 @@ app.delete('/api/notes', (req, res) => {
 app.listen(PORT, () => {
   console.log(`App listening on PORT ${PORT}`);
 });
-
-/*
-Currently an array of objects use ES5 constructors?
-Store notes as class instances??
-
-
-
-*/
