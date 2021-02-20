@@ -14,7 +14,7 @@ app.use(express.json());
 
 /* Functions used in Routes */
 function findById(id, notesArray) {
-  const result = notesArray.filter(note => animal.id === id)[0];
+  const result = notesArray.filter(note => note.id === id)[0];
   return result;
 }
 
@@ -24,11 +24,29 @@ function createNewNote(body, notesArray) {
   notesArray.push(note);
   fs.writeFileSync(
     path.join(__dirname, './db/db.json'),
-    JSON.stringify({note: notesArray}, null, 2)
+    JSON.stringify(notesArray) // optionally: (notesArray, null, 2) to add whitespace to make json more readable
   );
   return note;
 }
 
+function deleteNote(id, notesArray) {
+  let message;
+  for (var i = 0; i < notesArray.length; i++) {
+    if (id === notesArray[i].id) {
+      notesArray.splice(i, 1);
+      message = "The note was deleted";
+      break;
+    } else {
+      message = "No matching note was found";
+    }
+  }
+  fs.writeFileSync(
+    path.join(__dirname, './db/db.json'),
+    JSON.stringify(notesArray)
+  );
+  return message;
+  
+}
 
 /* Routes */
 app.get('/', (req, res) => {
@@ -54,8 +72,9 @@ app.post('/api/notes', (req, res) => {
   res.json(note);
 });
 
-app.delete('/api/notes', (req, res) => {
-   // 
+app.delete('/api/notes/:id', (req, res) => {
+  const deleted = deleteNote(req.params.id, db);
+  res.send(deleted);
 });
 
 

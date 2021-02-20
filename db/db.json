@@ -1,9 +1,1 @@
-{
-  "note": [
-    {
-      "title": "Test Note Post",
-      "text": "I'm testing the ability of the app to POST a new note to the database",
-      "id": "2c45e098-722e-4612-8f9a-36bbe05fe443"
-    }
-  ]
-}
+[{"title":"Test Title","text":"Test text","id":"randomstringof characters","dateCreated":"date"}]
