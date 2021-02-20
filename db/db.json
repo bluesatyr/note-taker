@@ -1,1 +1,1 @@
-[{"title":"Test Title","text":"Test text","id":"randomstringof characters","dateCreated":"date"}]
+[{"title":"Test Note Post","text":"I'm testing the ability of the app to POST a new note to the database","id":"ac450f77-4347-4f9b-a087-69390457a350"},{"title":"Another New Note","text":"Here is another new note. Let's see if this works!","id":"7c562f6a-1003-4477-a97c-26f737e149d5"},{"title":"Note 4","text":"This is the text for note #4\n\nWhat will it do when i add whitespace?","id":"d9aab6a3-dc00-44af-906e-2535a689eaf2"}]
