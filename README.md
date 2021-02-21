@@ -1,15 +1,18 @@
 # Note-Taker
 
-
-
 ## Description
 
 A simple note taking app that runs on a node server.
+
+## Screenshot
+
+![Final site](./screenshot.jpg)
 
 ## Table of Contents 
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Demo](#demo)
 
 
 ## Installation
